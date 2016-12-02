@@ -1,0 +1,26 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Example with vue router";
+    Layout = "~/Views/Shared/_VueLayout.cshtml";
+}
+
+
+<div id="app">
+    <h1>Hello App!</h1>
+    <p>
+        <!-- use v-link directive for navigation. -->
+        <router-link to="/foo" >Go to Foo</router-link>
+        <router-link to="/bar" >Go to Bar</router-link>
+      
+    </p>
+    <!-- route outlet -->
+    <router-view></router-view>
+</div>
+
+@*@{
+    var controllerName = HttpContext.Current.Request.RequestContext.RouteData.Values["Controller"].ToString();
+}
+@Scripts.Render("~/Scripts/app/" + controllerName + "/bundle.js")*@
+
+

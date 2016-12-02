@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Preloading values using Razor";
+    Layout = "~/Views/Shared/_VueLayout.cshtml";
+}
+
+<h2>Preloading values using Razor</h2>
+
+<div id="app">
+    <span>{{description}}</span> <br /><br />
+    
+    <input type="text" v-model="description" placeholder="edit me" style="width:300px;">
+
+    <hr />
+    <button class="btn btn-default" v-on:click="loadData()">GET DATA !?!</button>
+    <button class="btn btn-default" v-on:click="loadData(1)">GET REAL DATA !!</button>
+    <br />
+    <div v-if="serverData">
+        {{serverData.Name}} - {{serverData.Surname}} - {{serverData.Description}}
+    </div>
+</div>
+
+<script> window.preLoadedData = JSON.parse('@Html.Raw(Model.Data)')</script>
